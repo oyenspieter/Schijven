@@ -6,19 +6,19 @@ using System.Text;
 
 class Program
 {
-    static long onderGrens;
-    static long bovenGrens;
-    static long blokVooraad;
-    static long aantalSteunenDieTimWiltHebben;
+    static int onderGrens;
+    static int bovenGrens;
+    static int blokVooraad;
+    static int aantalSteunenDieTimWiltHebben;
     static long schijven;
 
     static string input;
     static string[] inputString;
 
-    static long[] verkrijgbareSB;
-    static long[] matenDieTimWiltHebben;
+    static int[] verkrijgbareSB;
+    static int[] matenDieTimWiltHebben;
 
-    static long j;
+    static int j;
 
     static void Main()
     {
@@ -61,15 +61,15 @@ class Program
     {
         input = Console.ReadLine();
         inputString = input.Split(' ');
-        blokVooraad = Convert.ToInt64(inputString[0]);
+        blokVooraad = Convert.ToInt32(inputString[0]);
 
-        verkrijgbareSB = new long[blokVooraad];
+        verkrijgbareSB = new int[blokVooraad];
 
         for (int i = 0; i < blokVooraad; i++)
         {
             input = Console.ReadLine();
             inputString = input.Split(' ');
-            verkrijgbareSB[i] = Convert.ToInt64(inputString[0]);
+            verkrijgbareSB[i] = Convert.ToInt32(inputString[0]);
         }
     }
 
@@ -80,7 +80,7 @@ class Program
         inputString = input.Split(' ');
         aantalSteunenDieTimWiltHebben = Convert.ToInt32(inputString[0]);
 
-        matenDieTimWiltHebben = new long[aantalSteunenDieTimWiltHebben];
+        matenDieTimWiltHebben = new int[aantalSteunenDieTimWiltHebben];
 
         for (int i = 0; i < aantalSteunenDieTimWiltHebben; i++)
         {
@@ -91,12 +91,12 @@ class Program
     }
 
     // zoek de index van een blok mbv binary search
-    static long zoekBlok (int x)
+    static int zoekBlok (int x)
     {
         onderGrens = -1;
         bovenGrens = blokVooraad;
-        long m = 0;
-        long maat = matenDieTimWiltHebben[x];
+        int m = 0;
+        int maat = matenDieTimWiltHebben[x];
 
         while (onderGrens < bovenGrens - 1)
         {
